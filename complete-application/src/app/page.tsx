@@ -1,11 +1,10 @@
-import { getServerSession } from 'next-auth';
+import { auth } from "@/auth"
 import Image from 'next/image';
 import { redirect } from 'next/navigation';
-import { authOptions } from './api/auth/[...nextauth]/route';
 import LoginLink from '../components/LoginLink';
 
 export default async function Home() {
-  const session = await getServerSession(authOptions);
+  const session = await auth();
 
   if (session) {
     redirect('/account');

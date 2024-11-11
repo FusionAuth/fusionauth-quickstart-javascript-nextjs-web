@@ -3,8 +3,7 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import LoginButton from '../components/LoginButton';
 
-import { getServerSession } from 'next-auth/next';
-import { authOptions } from './api/auth/[...nextauth]/route';
+import { auth } from "@/auth";
 
 export const metadata: Metadata = {
   title: 'FusionAuth Next.js with NextAuth.js',
@@ -16,7 +15,7 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const session = await getServerSession(authOptions);
+  const session = await auth();
 
   return (
     <html lang="en">

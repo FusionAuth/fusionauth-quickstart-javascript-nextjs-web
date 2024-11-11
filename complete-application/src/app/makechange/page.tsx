@@ -1,10 +1,9 @@
-import { getServerSession } from 'next-auth';
-import { authOptions } from '../api/auth/[...nextauth]/route';
+import { auth } from "@/auth";
 import { redirect } from 'next/navigation';
 import MakeChangeForm from '../../components/MakeChangeForm';
 
 export default async function MakeChange() {
-  const session = await getServerSession(authOptions);
+  const session = await auth();
 
   if (!session) {
     redirect('/');

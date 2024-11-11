@@ -1,10 +1,8 @@
-import { getServerSession } from 'next-auth';
-import Image from 'next/image';
-import { authOptions } from '../api/auth/[...nextauth]/route';
+import { auth } from "@/auth";
 import { redirect } from 'next/navigation';
 
 export default async function Account() {
-  const session = await getServerSession(authOptions);
+  const session = await auth();
 
   if (!session) {
     redirect('/');

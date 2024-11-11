@@ -1,6 +1,6 @@
 'use client';
 
-import { signIn, signOut } from 'next-auth/react';
+import { signIn, signOut } from "next-auth/react";
 
 export default function LoginButton({ session }: { session: any }) {
   if (session) {
