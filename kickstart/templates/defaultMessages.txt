@@ -191,6 +191,7 @@ registration-verification-sent-title=Verification sent
 registration-verification-required-title=Verification required
 registration-verification-required-send-another=Send me another email
 relying-party-id=Relying party Id
+return-to-application=Return to application
 return-to-login=Return to login
 return-to-normal-login=Return to the normal login
 return-to-webauthn-reauth=Return to passkey authentication
@@ -303,14 +304,18 @@ send-one-time-code=Send a one-time code
 #
 no-two-factor-methods-configured=No methods have been configured
 select-two-factor-method=Select a method
+select-two-factor-message-type=Select a message type
 two-factor-authentication=Two-factor authentication
 two-factor-method=Method
 two-factor-method-authenticator=Authenticator
 two-factor-method-email=Email message
 two-factor-method-sms=Text message
+two-factor-method-voice=Voice call
 two-factor-get-code-at-authenticator=Get a code from your authenticator app
-two-factor-get-code-at-email=Get a code at %s\u2026
+two-factor-get-code-at-email=Get a code at %s…
 two-factor-get-code-at-sms=Get a code at (***) ***-**%s
+two-factor-get-code-at-voice=Send code via voice message to (***) ***-**%s
+voice=Voice
 
 # Form input place-holders
 {placeholder}two-factor-code=Enter the one-time code
@@ -334,7 +339,11 @@ oauth2-email-enable-step-1=To enable two-factor using email, enter an email addr
 # SMS Enable / Disable
 sms-disable-step-1=To disable two-factor using SMS, click the button to send a one-time use code to %s. Once you receive the code, enter it in the form below.
 sms-enable-step-1=To enable two-factor using SMS, enter a mobile phone and click the button to send a one-time use code. Once you receive the code, enter it in the form below.
+sms-enable-smsMessage-step-1=To enable two-factor using phone, enter a mobile phone and click the button to send a one-time use code via SMS message. Once you receive the code, enter it in the form below.
+sms-enable-voiceMessage-step-1=To enable two-factor using phone, enter a mobile phone and click the button to send a one-time use code via voice message. Once you receive the code, enter it in the form below.
 oauth2-sms-enable-step-1=To enable two-factor using SMS, enter a mobile phone and click the button to send a one-time use code. Once you receive the code, enter it in the form below.
+oauth2-sms-enable-smsMessage-step-1=To enable two-factor using phone, enter a mobile phone and click the button to send a one-time use code via SMS message. Once you receive the code, enter it in the form below.
+oauth2-sms-enable-voiceMessage-step-1=To enable two-factor using phone, enter a mobile phone and click the button to send a one-time use code via voice message. Once you receive the code, enter it in the form below.
 
 authenticator-configuration=Authenticator configuration
 verification-code=Verification code
@@ -774,3 +783,11 @@ user.parentEmail=Parent's email
 verificationCode=Verification code
 oneTimeCode=One-time code
 password-containsLoginId-constraint=Cannot contain the user's login
+
+#1.68.0 messages - Two-factor edit
+two-factor-name=Name
+account-two-factor-edit-page-title=Edit Two-Factor
+{placeholder}two-factor-name=Enter a name to identify this method
+edit-two-factor=Edit two-factor
+{description}edit-two-factor=Update the name used to identify this two-factor method.
+[tooLong]twoFactorName=Two-factor method name exceeds the maximum length requirement

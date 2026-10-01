@@ -1,40 +1,36 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useState, type FormEvent } from 'react';
 
-var coins = {
-  quarters: 0.25,
-  dimes: 0.1,
-  nickels: 0.05,
-  pennies: 0.01,
+const coins = {
+  quarters: 25,
+  dimes: 10,
+  nickels: 5,
+  pennies: 1,
 };
 
 export default function MakeChangeForm() {
   const [message, setMessage] = useState('');
   const [amount, setAmount] = useState(0);
-  useEffect(() => {
-    setMessage('');
-    setAmount(0);
-  }, []);
 
-  const onMakeChange = (event: any) => {
+  const onMakeChange = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     try {
       setMessage('We can make change for');
 
-      let remainingAmount = amount;
+      let remainingCents = Math.round(amount * 100);
       for (const [name, nominal] of Object.entries(coins)) {
-        let count = Math.floor(remainingAmount / nominal);
-        remainingAmount =
-          Math.ceil((remainingAmount - count * nominal) * 100) / 100;
+        const count = Math.floor(remainingCents / nominal);
+        remainingCents = remainingCents - count * nominal;
 
         setMessage((m) => `${m} ${count} ${name}`);
       }
       setMessage((m) => `${m}!`);
-    } catch (ex: any) {
+    } catch (ex: unknown) {
+      const errorMessage = ex instanceof Error ? ex.message : String(ex);
       setMessage(
-        `There was a problem converting the amount submitted. ${ex.message}`
+        `There was a problem converting the amount submitted. ${errorMessage}`
       );
     }
   };
